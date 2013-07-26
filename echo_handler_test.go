@@ -25,7 +25,9 @@ func TestEchosContent (t *testing.T) {
 	case expectedBody:
 		// body is equal so no need to do anything
 	default:
-		t.Errorf("Body (%s) did not match expectation (%s).", recorder.Body.String(), expectedBody)
+		t.Errorf("Body (%s) did not match expectation (%s).",
+			recorder.Body.String(),
+			expectedBody)
 	}
 }
 
@@ -51,7 +53,8 @@ func TestClient (t *testing.T) {
 	defer server.Close()
 
 	// Pretend this is some sort of Go client...
-	resp, err := http.DefaultClient.Get(fmt.Sprintf("%s?say=Nothing", server.URL))
+	url := fmt.Sprintf("%s?say=Nothing", server.URL)
+	resp, err := http.DefaultClient.Get(url)
 	if err != nil {
 		t.Errorf("Error performing request.")
 	}
