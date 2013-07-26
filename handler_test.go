@@ -46,10 +46,11 @@ func TestReturns404IfYouSayNothing (t *testing.T) {
 	}
 }
 
-func TestUsingIntegrationStyle (t *testing.T) {
+func TestClient (t *testing.T) {
 	server := httptest.NewServer(new(EchoHandler))
 	defer server.Close()
 
+	// Pretend this is some sort of Go client...
 	resp, err := http.DefaultClient.Get(fmt.Sprintf("%s?say=Nothing", server.URL))
 	if err != nil {
 		t.Errorf("Error performing request.")
