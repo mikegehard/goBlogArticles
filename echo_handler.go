@@ -4,10 +4,9 @@ import (
 	"net/http"
 )
 
-import (
-)
+import ()
 
-type EchoHandler struct { }
+type EchoHandler struct{}
 
 func (e EchoHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	sayParam := r.FormValue("say")

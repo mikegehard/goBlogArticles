@@ -1,15 +1,14 @@
 package blogarticles
 
-
 import (
-	"github.com/stretchr/testify/assert"
-	"testing"
-	"net/http/httptest"
-	"net/http"
 	"fmt"
+	"github.com/stretchr/testify/assert"
+	"net/http"
+	"net/http/httptest"
+	"testing"
 )
 
-func TestEchosContentTestify (t *testing.T) {
+func TestEchosContentTestify(t *testing.T) {
 	handler := new(EchoHandler)
 	expectedBody := "Hello"
 
@@ -23,7 +22,7 @@ func TestEchosContentTestify (t *testing.T) {
 	assert.Equal(t, expectedBody, recorder.Body.String())
 }
 
-func TestReturns404IfYouSayNothingTestify (t *testing.T) {
+func TestReturns404IfYouSayNothingTestify(t *testing.T) {
 	handler := new(EchoHandler)
 
 	recorder := httptest.NewRecorder()
@@ -36,7 +35,7 @@ func TestReturns404IfYouSayNothingTestify (t *testing.T) {
 	assert.Equal(t, 404, recorder.Code)
 }
 
-func TestClientTestify (t *testing.T) {
+func TestClientTestify(t *testing.T) {
 	server := httptest.NewServer(new(EchoHandler))
 	defer server.Close()
 

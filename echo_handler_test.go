@@ -1,14 +1,13 @@
 package blogarticles
 
-
 import (
-	"testing"
-	"net/http/httptest"
-	"net/http"
 	"fmt"
+	"net/http"
+	"net/http/httptest"
+	"testing"
 )
 
-func TestEchosContent (t *testing.T) {
+func TestEchosContent(t *testing.T) {
 	handler := new(EchoHandler)
 	expectedBody := "Hello"
 
@@ -31,7 +30,7 @@ func TestEchosContent (t *testing.T) {
 	}
 }
 
-func TestReturns404IfYouSayNothing (t *testing.T) {
+func TestReturns404IfYouSayNothing(t *testing.T) {
 	handler := new(EchoHandler)
 
 	recorder := httptest.NewRecorder()
@@ -48,7 +47,7 @@ func TestReturns404IfYouSayNothing (t *testing.T) {
 	}
 }
 
-func TestClient (t *testing.T) {
+func TestClient(t *testing.T) {
 	server := httptest.NewServer(new(EchoHandler))
 	defer server.Close()
 
